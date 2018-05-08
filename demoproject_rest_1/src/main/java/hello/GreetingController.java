@@ -1,4 +1,4 @@
-package hello;
+﻿package hello;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("/greetingtest") 
+//@RequestMapping("/greetingtest") 
 public class GreetingController {
 
 	private static final String template = "Hello, %s";
@@ -16,7 +16,7 @@ public class GreetingController {
 	
 	@RequestMapping("/greeting") //läge jetzt bei /greetingtest/greeting
 	public @ResponseBody GreetingClass greeting(
-			@RequestParam(value="name", required=false, defaultValue="World") String name) {
+			@RequestParam(value="name", required=false, defaultValue="World") String name) { //mit greeting?name=lars, kommt raus: Hello, Lars
 		
 		return new GreetingClass(counter.incrementAndGet(), String.format(template, name));
 	} 
